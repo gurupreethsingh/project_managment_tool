@@ -1,0 +1,159 @@
+# =========================
+# OS / Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.orig
+
+# VS Code (keep recommendations/settings templates if you want)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+
+# JetBrains / Eclipse
+.idea/
+*.iml
+.project
+.classpath
+.c9/
+
+# =========================
+# Node / JS
+# =========================
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+package-lock.backup.json
+
+# (Optional) ignore lockfiles — uncomment if you don't commit them
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage / reports
+coverage/
+**/coverage/
+.nyc_output/
+reports/
+allure-results/
+allure-report/
+
+# Testing outputs (Jest / Playwright / Cypress etc.)
+test-results/
+playwright-report/
+blob-report/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Lint/format caches
+.eslintcache
+.prettier-cache
+
+# PM2 / PIDs / temp
+pids/
+*.pid
+*.seed
+*.pid.lock
+tmp/
+temp/
+
+# =========================
+# Env & secrets
+# =========================
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+*.pem
+*.key
+*.crt
+private_keys/
+secrets.*
+ssl/
+
+# =========================
+# Build artifacts (root)
+# =========================
+dist/
+build/
+.out/
+.cache/
+.parcel-cache/
+
+# =========================
+# Frontend (CRA / Vite / Next-compatible)
+# =========================
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.turbo/
+frontend/.vite/
+frontend/.nuxt/    # (harmless if not used)
+
+# =========================
+# Backend
+# =========================
+backend/dist/
+backend/build/
+backend/logs/
+backend/*.log
+backend/logs/*.log
+backend/.cache/
+backend/storage/
+backend/tmp/
+
+# =========================
+# Uploads & generated media
+# (keep a placeholder .gitkeep if you need the folders in repo)
+# =========================
+uploads/
+**/uploads/
+!uploads/.gitkeep
+**/uploads/.gitkeep
+
+# =========================
+# Database dumps / exports
+# =========================
+dump/
+**/dump/
+backups/
+**/backups/
+*.dump
+*.sql
+*.sqlite
+*.sqlite3
+mongodump/
+**/mongodump/
+
+# =========================
+# Python (if you run scripts in repo)
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# =========================
+# Logs (anywhere)
+# =========================
+*.log
+logs/
+**/logs/
