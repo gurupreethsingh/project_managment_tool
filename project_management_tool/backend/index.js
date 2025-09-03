@@ -19,8 +19,8 @@ const projectRoutes = require("./routes/ProjectRoutes");
 
 // ✅ MIDDLEWARE FIRST
 app.use(cors());
-app.use(express.json());         // 🟢 First
-app.use(bodyParser.json());      // 🟢 Optional if using express.json()
+app.use(express.json()); // 🟢 First
+app.use(bodyParser.json()); // 🟢 Optional if using express.json()
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
@@ -37,7 +37,7 @@ app.use("/api/developers", developerRoutes);
 app.use("/api", attendanceRoutes);
 app.use("/api", notificationRoutes);
 app.use("/api", requirementRoutes);
-app.use("/api" , blogRoutes);
+app.use("/api", blogRoutes);
 app.use("/api", projectRoutes);
 
 const User = require("./models/UserModel");
@@ -72,10 +72,10 @@ const BugHistory = require("./models/BugHistoryModel");
 // import DefectAssignment
 const DefectAssignment = require("./models/DefectAssignmentModel");
 
-// import instructor , course, student, exam modules from CourseModel.js file. 
+// import instructor , course, student, exam modules from CourseModel.js file.
 const Student = require("./models/CourseModel");
-const Instructor  = require("./models/CourseModel");
-const Course  = require("./models/CourseModel");
+const Instructor = require("./models/CourseModel");
+const Course = require("./models/CourseModel");
 const Exam = require("./models/CourseModel");
 
 // registering a new user , into the application code is working perfectly fine.
@@ -148,7 +148,6 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 
 // Fetch user by ID
 app.get("/user/:id", async (req, res) => {
@@ -1391,8 +1390,6 @@ app.get("/api/users/by-role/:role", async (req, res) => {
   }
 });
 
-
-
 // Route to add a new test case
 app.post("/add-test-case", async (req, res) => {
   const {
@@ -1805,7 +1802,6 @@ app.get("/projects/:projectId/developers", async (req, res) => {
   }
 });
 
-
 // fetch all the tasks,
 // Backend: Fetch tasks for a project
 app.get("/single-project/:projectId/view-all-tasks", async (req, res) => {
@@ -1823,22 +1819,22 @@ app.get("/single-project/:projectId/view-all-tasks", async (req, res) => {
   }
 });
 
-
-
-// route to fetch all the tasks of the developer lead. 
+// route to fetch all the tasks of the developer lead.
 // GET: All tasks assigned to a developer across all projects
 app.get("/developer-lead/:userId/assigned-tasks", async (req, res) => {
   const { userId } = req.params;
 
   try {
     const assignedTasks = await Task.find({
-      assignedUsers: { $in: [userId] }
+      assignedUsers: { $in: [userId] },
     });
 
     res.status(200).json({ tasks: assignedTasks });
   } catch (error) {
     console.error("Error fetching developer tasks:", error);
-    res.status(500).json({ error: "Failed to fetch tasks assigned to developer" });
+    res
+      .status(500)
+      .json({ error: "Failed to fetch tasks assigned to developer" });
   }
 });
 
@@ -2019,7 +2015,6 @@ app.get("/developer-lead/:userId/assigned-defects", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch assigned defects" });
   }
 });
-
 
 //
 
